@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Profissionais</title>
+</head>
+<body>
+    <p><a href="{% url 'index' %}">Home page</a></p>
+
+    <h1>Lista de Profissionais</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Data de Nascimento</th>
+                <th>Telefone</th>
+                <th>Gênero</th>
+                <th>Instituição de formação</th>
+                <th>CMR</th>
+                <th>Área de atuação</th>
+                <th>Email</th>
+                <!-- <th>Foto perfil</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for profissional in profissionais %}
+            <tr>
+                <td>{{ profissional.nome }}</td>
+                <td>{{ profissional.CPF }}</td>
+                <td>{{ profissional.data_de_nascimento }}</td>
+                <td>{{ profissional.telefone }}</td>
+                <td>{{ profissional.email }}</td>
+                <td>{{ profissional.get_genero_display }}</td>
+                <td>{{ profissional.instituicao_de_formacao }}</td>
+                <td>{{ profissional.CMR }}</td>
+                <td>{{ profissional.get_especialidade_display }}</td>
+                <td>{{ profissional.email }}</td>
+                <!-- <td>{{ profissional.foto_de_perfil }}</td> -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
